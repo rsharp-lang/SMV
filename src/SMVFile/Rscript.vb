@@ -33,9 +33,9 @@ Public Module Rscript
     <ExportAPI("smv_raster")>
     <RApiReturn(GetType(RasterObject))>
     Public Function getRaster(file As Reader, Optional env As Environment = Nothing) As Object
-        Dim metadata = file.ReadHeader.ToNrrdMetadata
-        Dim stream As Double() = file.ReadData
-        Dim raster As RasterObject = RasterObject.CreateRasterObject(metadata, rawdata:=stream)
+        Dim metadata = file.ReadHeader
+        Dim stream As Double() = file.ReadData.Decode(metadata)
+        Dim raster As RasterObject = RasterObject.CreateRasterObject(metadata.ToNrrdMetadata, rawdata:=stream)
 
         Return raster
     End Function
