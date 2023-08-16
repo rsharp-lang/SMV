@@ -1,6 +1,8 @@
 ﻿Imports System.Reflection
 Imports Microsoft.VisualBasic.ComponentModel.DataSourceModel.DataFramework
+Imports Microsoft.VisualBasic.Data.IO
 Imports Microsoft.VisualBasic.Serialization.JSON
+Imports NRRD
 Imports any = Microsoft.VisualBasic.Scripting
 
 Namespace FileFormat
@@ -35,6 +37,15 @@ Namespace FileFormat
 
         Sub New()
         End Sub
+
+        Public Function ToNrrdMetadata() As Metadata
+            Return New Metadata With {
+                .dimension = [DIM],
+                .sizes = {SIZE1, SIZE2},
+                .encoding = Encoding.ascii,
+                .endian = If(BYTE_ORDER.TextEquals("little_endian"), ByteOrder.LittleEndian, ByteOrder.BigEndian)
+            }
+        End Function
 
         Public Overrides Function ToString() As String
             Return Me.GetJson

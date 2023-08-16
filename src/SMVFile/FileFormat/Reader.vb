@@ -27,9 +27,28 @@ Namespace FileFormat
             Return header
         End Function
 
-        Public Function ReadData()
+        Public Function ReadData() As Double()
+            Dim header = ReadHeader()
+            Dim size As Integer = header.SIZE1 * header.SIZE2
+            Dim data As Double()
+
             Call buf.Seek(header_size, SeekOrigin.Begin)
 
+            ' configs of the binary data reader
+            If header.BYTE_ORDER.TextEquals("little_endian") Then
+                buf.ByteOrder = ByteOrder.LittleEndian
+            Else
+                buf.ByteOrder = ByteOrder.BigEndian
+            End If
+
+            Select Case header.TYPE.ToLower
+                Case "unsigned_short"
+                    data = buf.ReadUInt16s(count:=size).Select(Function(i) CDbl(i)).ToArray
+                Case Else
+                    Throw New NotImplementedException(header.TYPE)
+            End Select
+
+            Return data
         End Function
 
         Private Sub loadHeaderInternal()
