@@ -4,13 +4,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>Reader</title>
+    <title>NRRD</title>
     <meta name="author" content="xie.guigang@gcmodeller.org" />
     <meta name="copyright" content="SMRUCC genomics Copyright (c) 2022" />
-    <meta name="keywords" content="R#; Reader; SMVFile" />
+    <meta name="keywords" content="R#; NRRD; NRRD" />
     <meta name="generator" content="https://github.com/rsharp-lang" />
     <meta name="theme-color" content="#333" />
-    <meta name="description" content="..." />
+    <meta name="description" content="Nearly Raw Raster Data Nrrd is a library and file format designe..." />
     <meta class="foundation-data-attribute-namespace" />
     <meta class="foundation-mq-xxlarge" />
     <meta class="foundation-mq-xlarge" />
@@ -50,23 +50,38 @@ table caption {font-size:14px;font-weight:bolder;}
 </style>
   </head>
   <body>
-    <table width="100%" summary="page for {Reader}">
+    <table width="100%" summary="page for {NRRD}">
       <tbody>
         <tr>
-          <td>{Reader}</td>
+          <td>{NRRD}</td>
           <td style="text-align: right;">R# Documentation</td>
         </tr>
       </tbody>
     </table>
-    <h1>Reader</h1>
+    <h1>NRRD</h1>
     <hr />
     <p style="     font-size: 1.125em;     line-height: .8em;     margin-left: 0.5%;     background-color: #fbfbfb;     padding: 24px; ">
       <code>
         <span style="color: blue;">require</span>(<span style="color: black; font-weight: bold;">SMV</span>);
-                               <br /><br /><span style="color: green;">{$desc_comments}</span><br /><span style="color: blue;">imports</span><span style="color: brown"> "Reader"</span><span style="color: blue;"> from</span><span style="color: brown"> "SMVFile"</span>;
+                               <br /><br /><span style="color: green;">#' Nearly Raw Raster Data</span><br /><span style="color: blue;">imports</span><span style="color: brown"> "NRRD"</span><span style="color: blue;"> from</span><span style="color: brown"> "NRRD"</span>;
                            </code>
     </p>
-    <p></p>
+    <p><h2>Nearly Raw Raster Data</h2>
+
+<p>Nrrd is a library and file format designed to support scientific <br />
+ visualization and image processing involving N-dimensional raster <br />
+ data. Nrrd stands for "nearly raw raster data". Besides dimensional<br />
+ generality, nrrd is flexible with respect to type (8 integral <br />
+ types, 2 floating point types), encoding of written files (raw, <br />
+ ascii, hex, or gzip or bzip2 compression), and endianness (the byte <br />
+ order of data is explicitly recorded when the type or encoding expose<br />
+ it). Besides the NRRD format, the library can read and write PNG, PPM, <br />
+ and PGM images, as well as some VTK "STRUCTURED_POINTS" datasets. </p>
+
+<p>About two dozen operations on raster data are implemented, including<br />
+ simple things like quantizing, slicing, and cropping, as well as <br />
+ fancier things like projection, histogram equalization, and filtered<br />
+ resampling (up and down) with arbitrary seperable kernels.</p></p>
     <blockquote>
       <p style="font-style: italic; font-size: 0.9em;">
                            
@@ -75,22 +90,46 @@ table caption {font-size:14px;font-weight:bolder;}
     <div id="main-wrapper">
       <table class="table-three-line">
         <tbody><tr>
-  <td id="open.smv_file">
-    <a href="./Reader/open.smv_file.html">open.smv_file</a>
+  <td id="nrrdRead">
+    <a href="./NRRD/nrrdRead.html">nrrdRead</a>
   </td>
   <td></td>
 </tr>
 <tr>
-  <td id="smv_header">
-    <a href="./Reader/smv_header.html">smv_header</a>
+  <td id="metadata">
+    <a href="./NRRD/metadata.html">metadata</a>
   </td>
   <td></td>
 </tr>
 <tr>
-  <td id="smv_raster">
-    <a href="./Reader/smv_raster.html">smv_raster</a>
+  <td id="getRaster">
+    <a href="./NRRD/getRaster.html">getRaster</a>
   </td>
   <td></td>
+</tr>
+<tr>
+  <td id="getRasterLayer">
+    <a href="./NRRD/getRasterLayer.html">getRasterLayer</a>
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td id="as.pointCloud">
+    <a href="./NRRD/as.pointCloud.html">as.pointCloud</a>
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td id="as.pointMatrix">
+    <a href="./NRRD/as.pointMatrix.html">as.pointMatrix</a>
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td id="write.ply">
+    <a href="./NRRD/write.ply.html">write.ply</a>
+  </td>
+  <td><p>write the NRRD raster data to PLY point cloud model</p></td>
 </tr></tbody>
       </table>
     </div>

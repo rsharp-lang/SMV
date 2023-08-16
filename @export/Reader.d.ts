@@ -17,4 +17,8 @@ declare namespace Reader {
      * @param env default value Is ``null``.
    */
    function smv_header(file: object, env?: object): any;
+   /**
+     * @param env default value Is ``null``.
+   */
+   function smv_raster(file: object, env?: object): object;
 }
