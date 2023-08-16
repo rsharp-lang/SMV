@@ -11,6 +11,10 @@ declare namespace Reader {
       /**
         * @param env default value Is ``null``.
       */
-      function smv_file(file: any, env?: object): any;
+      function smv_file(file: any, env?: object): object;
    }
+   /**
+     * @param env default value Is ``null``.
+   */
+   function smv_header(file: object, env?: object): any;
 }
